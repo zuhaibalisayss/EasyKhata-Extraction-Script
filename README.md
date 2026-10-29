@@ -1,29 +1,25 @@
-# EasyKhata Report Data Extraction
+# EasyKhata Ledger Extractor (Streamlit)
 
-A Python-based solution (built as a Jupyter Notebook) designed to parse, clean, and transform unstructured financial report PDFs from the **Easy Khata** app into structured, analysis-ready CSV files.
+A Streamlit interface for extracting ledger rows from text-based EasyKhata PDF reports.
 
----
+## Deploy free on Streamlit Community Cloud
 
-##  Overview
+1. Create a GitHub repository, for example `easykhata-streamlit`.
+2. Upload `streamlit_app.py`, `requirements.txt`, and `README.md` to the repository root.
+3. Open https://share.streamlit.io/ and sign in with GitHub.
+4. Select **Create app**, choose your repository and branch, and set the main file path to `streamlit_app.py`.
+5. Click **Deploy**.
 
-The **EasyKhata-Extraction-Script** simplifies financial tracking and bookkeeping by bridging the gap between raw PDF exports and spreadsheet software (such as Microsoft Excel or Google Sheets). While ledger applications export portable PDF summaries, analyzing transactions, calculating totals, or auditing data becomes tedious without clean tabular formats. This repository automates that extraction and cleaning workflow.
+## Run locally (optional)
 
----
+```bash
+python -m pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
 
-##  Features
+## Important limitations
 
-* **PDF Parsing:** Extracts raw textual data or tables from EasyKhata app report exports.
-* **Data Cleaning & Formatting:** Cleans raw extracted strings, standardizes date formats, and converts text-based currency fields into proper numerical data types for calculations.
-* **CSV Export:** Outputs a structured, clean CSV file ready for import into Excel, Google Sheets, or custom accounting dashboards.
-* **Interactive Notebook:** Built inside a Jupyter Notebook environment (`easykhata-report-data-extraction.ipynb`), making it easy to step through, audit, and modify transformations interactively.
-
----
-
-##  Project Structure
-
-```text
-EasyKhata-Extraction-Script/
-│
-├── easykhata-report-data-extraction.ipynb   # Main Jupyter Notebook containing the extraction & cleaning logic
-├── LICENSE                                  # Apache-2.0 License file
-└── README.md                                # Project documentation
+- The extraction logic is designed for text-based EasyKhata ledger PDFs and date strings such as `1st Jan, 25`.
+- Scanned/image-only PDFs are not OCR-processed.
+- Verify extracted rows and totals before using them for accounting.
+- Do not upload confidential financial documents to a public app unless access and privacy requirements are appropriate.
